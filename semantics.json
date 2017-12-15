@@ -1,0 +1,39 @@
+[
+        {
+                "label":"Image",
+                "name": "image",
+                "type": "image"
+        },
+        {
+                  "name": "levels",
+                  "type": "select",
+                  "label": "Levels",
+                  "description": "Select Difficulty Levels",
+                  "options": [
+                    {
+                        "label": "9X9"
+                    },
+                    {
+                      "label": "16x16"
+                    },
+                    {
+                         "label": "25X25"
+                    }
+                  ],
+                  "default" : "9X9"
+        },
+        {
+                  "name" : "chooseDifficulty",
+                  "label" : "Allow user to choose difficulty",
+                  "type" : "select",
+                  "options" : [
+                    {
+                      "label" : "Yes"
+                    },
+                    {
+                      "label" : "No"
+                    }
+                  ],
+                  "default" : "Yes"
+        }
+]
