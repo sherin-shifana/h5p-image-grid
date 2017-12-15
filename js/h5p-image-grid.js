@@ -15,13 +15,6 @@ H5P.ImageGrid = (function($){
 
                 }
 
-// imagePieces now contains data urls of all the pieces of the image
-
-// load one piece onto the page
-var anImageElement = document.getElementById('myImageElementInTheDom');
-anImageElement.src = imagePieces[0];
-}//your code goes here
-                }
 
                 //when image loaded
                 imageLoaded();

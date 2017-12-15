@@ -11,29 +11,37 @@
                   "description": "Select Difficulty Levels",
                   "options": [
                     {
-                        "label": "9X9"
+                        "label": "3x3",
+                        "value": 3
                     },
                     {
-                      "label": "16x16"
+                      "label": "4x4",
+                      "value": 4
                     },
                     {
-                         "label": "25X25"
+                         "label": "5x5",
+                         "value": 5
                     }
                   ],
-                  "default" : "9X9"
+                  "default" : 3
         },
         {
-                  "name" : "chooseDifficulty",
-                  "label" : "Allow user to choose difficulty",
-                  "type" : "select",
-                  "options" : [
-                    {
-                      "label" : "Yes"
-                    },
-                    {
-                      "label" : "No"
-                    }
-                  ],
-                  "default" : "Yes"
+                "name": "allowUserDifficulty",
+                "type": "select",
+                "widget": "radioGroup",
+                "alignment": "horizontal",
+                "label": " Allow User To Choose Difficulty",
+                "options": [
+                        {
+                                "value": "true",
+                                "label": "Yes"
+                        },
+                        {
+                                "value": "false",
+                                "label": "No"
+                        }
+                ],
+                "default": "true"
         }
 ]
+
