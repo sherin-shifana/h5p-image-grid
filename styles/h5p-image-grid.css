@@ -1,1 +1,17 @@
-//all css should go here
+
+.ul-class{
+  list-style-type : none;
+}
+.li-class{
+
+  margin-right: 6px;
+  display : inline-block;
+}
+.grid-image-div{
+
+
+}
+.game-start-button{
+    
+    margin-left: 45px;
+}
