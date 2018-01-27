@@ -12,8 +12,8 @@
       path = H5P.getPath(image.path, id);
       heightOfOnePiece = heightOfOnePiece;
       widthOfOnePiece = widthOfOnePiece;
-      changeInWidth=changeInWidth;
-      changeInHeight=changeInHeight;
+      changeInWidth = changeInWidth;
+      changeInHeight = changeInHeight;
 
 
       self.appendTo = function($container){

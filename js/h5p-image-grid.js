@@ -17,7 +17,6 @@ H5P.ImageGrid = (function($,UI){
                 self.widthOfOnePiece=self.params.image.width / self.params.levels;
 
                 //get fragments to use
-
                 var getFragments = function() {
                     console.log("working");
                     console.log(levelsNum);
@@ -41,7 +40,7 @@ H5P.ImageGrid = (function($,UI){
 
 
                 getFragments();
-
+                //
                 //if teacher chooses difficulty, then reconstruct the grid
                 redrawContainer = function($container,heightOfOnePiece,widthOfOnePiece,levelsNum){
                     console.log("redrawContainer");
@@ -60,10 +59,33 @@ H5P.ImageGrid = (function($,UI){
                       }
                       newDiv.appendTo($(ul));
                     }
-
-
                 }
 
+
+
+
+                self.shuffleArray = function(fragmentsToUse){
+
+                      var numOfFragments = fragmentsToUse.length;
+                      console.log(numOfFragments);
+                      var numPicket = 0;
+                      var pickedCardsMap = {};
+                      var shuffledFragments = [];
+                      while (numPicket < numOfFragments) {
+                        var pickIndex = Math.floor(Math.random() * numOfFragments);
+                        if (pickedCardsMap[pickIndex]) {
+                          continue; // Already picked, try again!
+                        }
+
+                        shuffledFragments.push(fragmentsToUse[pickIndex]);
+                        pickedCardsMap[pickIndex] = true;
+                        numPicket++;
+                      }
+
+                      return shuffledFragments;
+                };
+
+                shuffledFragments=self.shuffleArray(fragmentsToUse);
 
 
         }
@@ -74,24 +96,25 @@ H5P.ImageGrid = (function($,UI){
 
               $container.addClass('h5p-image-grid');
 
-
+              //if teacher allows students to choose dificulty
               if(self.params.chooseDifficulty==='true')
               {
                     ul=$('<ul class="ul-class">');
 
                     for(var k=0; k<levelsNum ; k++)
                     {
-                          var newDiv=$('<div class="grid-image-div"></div>');
+                          var $newDiv=$('<div class="grid-image-div"></div>');
                           for(var l=0; l<levelsNum; l++)
                           {
 
-                              fragmentsToUse[k*levelsNum+l].appendTo($(newDiv));
+                              fragmentsToUse[k*levelsNum+l].appendTo($newDiv);
 
                           }
-                          newDiv.appendTo($(ul));
+                          $newDiv.appendTo($(ul));
                     }
                     $container.append(ul);
 
+                    //choose difficulty
                     $container.append('<div>Difficulty:    <select id="mySelect"><option value="3">9 pieces</option><option value="4">16 pieces</option><option value="5">25 pieces</option><option value="6">36 pieces</option><option value="7">49 pieces</option></select></div><br />');
                     var obj=document.getElementById('mySelect');
                     $(obj).change(function(){
@@ -104,17 +127,40 @@ H5P.ImageGrid = (function($,UI){
                           console.log(widthOfOnePiece);
 
                           redrawContainer($(ul),self.heightOfOnePiece,self.widthOfOnePiece,levelsNum);
+                          shuffledFragments=self.shuffleArray(fragmentsToUse);
 
                     });
 
+                    //start button
                     self.$start=UI.createButton({
                         title: 'Button',
                         'class': 'level-next-button',
                         'text' : 'Start the Puzzle',
+                        click: function() {
+                          $container.empty();
+
+                          ul=$('<ul class="ul-class">');
+
+                          for(var k=0; k<levelsNum ; k++)
+                          {
+                                var $newDiv=$('<div class="grid-image-div"></div>');
+                                for(var l=0; l<levelsNum; l++)
+                                {
+
+                                    shuffledFragments[k*levelsNum+l].appendTo($newDiv);
+
+                                }
+                                $newDiv.appendTo($(ul));
+                          }
+                          $container.append(ul);
+                        },
                       }).appendTo($container);
+
+
 
               }
 
+              //if students can choose difficulty
               else {
                     ul=$('<ul class="ul-class">');
 
@@ -135,9 +181,29 @@ H5P.ImageGrid = (function($,UI){
                         title: 'Button',
                         'class': 'level-next-button',
                         'text' : 'Start the Puzzle',
+                        click: function() {
+                          $container.empty();
+                          ul=$('<ul class="ul-class">');
+
+                          for(var k=0; k<levelsNum ; k++)
+                          {
+                                var $newDiv=$('<div class="grid-image-div"></div>');
+                                for(var l=0; l<levelsNum; l++)
+                                {
+
+                                    shuffledFragments[k*levelsNum+l].appendTo($newDiv);
+
+                                }
+                                $newDiv.appendTo($(ul));
+                          }
+                          $container.append(ul);
+                                                },
                       }).appendTo($container);
-                      
+
+
+
               }
+
               H5P.trigger("resize");
         }
 
