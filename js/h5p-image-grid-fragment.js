@@ -1,31 +1,40 @@
-<<<<<<< HEAD
-function(ImageGrid,EventDispatcher,$){
-
-    ImageGrid.Fragment=function(image,id,heightOfOnePiece,widthOfOnePiece,changeInHeight,changeInWidth){
-      var self = this;
-      var path = H5P.getPath(image.path, id);
-
-      self.appendTo = function($container){
-          $fragment = $('<li class = "li-class">' + '<div>' + '<img src="' + path + '" height="' + heightOfOnePiece + '" width="' + widthOfOnePiece + '"  />')
-      };
-
-    };
-
-}(H5P.ImageGrid, H5P.EventDispatcher, H5P.jQuery);
-=======
 (function(ImageGrid,$){
 
-        ImageGrid.Fragment= function(width,height,row,col){
+    var path;
+    var heightOfOnePiece;
+    var widthOfOnePiece;
+    var changeInWidth;
+    var changeInHeight;
 
-                this.width = width;
-                this.height = height;
-                this.row = row;
-                this.col = col;
-                console.log(row+"_"+col);
-        }
+    ImageGrid.Fragments = function(image,id,heightOfOnePiece,widthOfOnePiece,changeInHeight,changeInWidth){
 
-        ImageGrid.Fragment.prototype.constructor = ImageGrid.Fragment;
+      var self = this;
+      path = H5P.getPath(image.path, id);
+      heightOfOnePiece = heightOfOnePiece;
+      widthOfOnePiece = widthOfOnePiece;
+      changeInWidth=changeInWidth;
+      changeInHeight=changeInHeight;
 
-        return ImageGrid.Fragment;
+
+      self.appendTo = function($container){
+          $fragment = $('<li class="li-class"></li>')
+                      .css('background-image','url(' + path + ')')
+                      .css('background-position-x',-changeInWidth+'px')
+                      .css('background-position-y',-changeInHeight+'px')
+                      .css('height',heightOfOnePiece+'px')
+                      .css('width',widthOfOnePiece+'px').appendTo($container);
+      };
+    }
+
+
+
+
+    // ImageGrid.fragments.prototype = Object.create(EventDispatcher.prototype);
+    ImageGrid.Fragments.prototype.constructor = ImageGrid.Fragments;
+
+    // ImageGrid.fragments.isValid = function(params) {
+    //     return (params !== undefined && params.image !== undefined && params.image.path !== undefined);
+    // };
+
+    return ImageGrid.Fragments;
 })(H5P.ImageGrid,H5P.jQuery);
->>>>>>> 388710a6d20fc1296225498637ce5cdce7647367

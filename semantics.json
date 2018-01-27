@@ -13,7 +13,6 @@
                   "options": [
                     {
                         "label": "3x3",
-<<<<<<< HEAD
                         "value" : "3"
                     },
                     {
@@ -33,7 +32,7 @@
                          "value" : "7"
                     }
                   ],
-                  "default" : "3X3"
+                  "default" : "3"
         },
         {
                   "name" : "chooseDifficulty",
@@ -54,39 +53,7 @@
                     }
                   ],
                   "default" : "true"
-=======
-                        "value": 3
-                    },
-                    {
-                      "label": "4x4",
-                      "value": 4
-                    },
-                    {
-                         "label": "5x5",
-                         "value": 5
-                    }
-                  ],
-                  "default" : 3
-        },
-        {
-                "name": "allowUserDifficulty",
-                "type": "select",
-                "widget": "radioGroup",
-                "alignment": "horizontal",
-                "label": " Allow User To Choose Difficulty",
-                "options": [
-                        {
-                                "value": "true",
-                                "label": "Yes"
-                        },
-                        {
-                                "value": "false",
-                                "label": "No"
-                        }
-                ],
-                "default": "true"
->>>>>>> 388710a6d20fc1296225498637ce5cdce7647367
+
         }
 
 ]
-

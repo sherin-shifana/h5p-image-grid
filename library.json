@@ -25,9 +25,9 @@
         "preloadedDependencies": [
           {
 
-     "machineName":"H5P.JoubelUI",
-     "majorVersion":1,
-     "minorVersion":3
+                    "machineName":"H5P.JoubelUI",
+                      "majorVersion":1,
+                      "minorVersion":3
 
           }
         ],
@@ -36,13 +36,6 @@
                         "machineName": "H5PEditor.RadioGroup",
                         "majorVersion": 1,
                         "minorVersion": 1
-                }
-        ],
-        "editorDependencies" : [
-                {
-                        "machineName" : "H5PEditor.RadioGroup",
-                        "majorVersion" : "1",
-                        "minorVersion" : "1"
                 }
         ],
         "preloadedDependencies" : [
