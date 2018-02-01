@@ -1,13 +1,40 @@
-function(ImageGrid,EventDispatcher,$){
+(function(ImageGrid,$){
 
-    ImageGrid.Fragment=function(image,id,heightOfOnePiece,widthOfOnePiece,changeInHeight,changeInWidth){
+    var path;
+    var heightOfOnePiece;
+    var widthOfOnePiece;
+    var changeInWidth;
+    var changeInHeight;
+
+    ImageGrid.Fragments = function(image,id,heightOfOnePiece,widthOfOnePiece,changeInHeight,changeInWidth){
+
       var self = this;
-      var path = H5P.getPath(image.path, id);
+      path = H5P.getPath(image.path, id);
+      heightOfOnePiece = heightOfOnePiece;
+      widthOfOnePiece = widthOfOnePiece;
+      changeInWidth = changeInWidth;
+      changeInHeight = changeInHeight;
+
 
       self.appendTo = function($container){
-          $fragment = $('<li class = "li-class">' + '<div>' + '<img src="' + path + '" height="' + heightOfOnePiece + '" width="' + widthOfOnePiece + '"  />')
+          $fragment = $('<li class="li-class"></li>')
+                      .css('background-image','url(' + path + ')')
+                      .css('background-position-x',-changeInWidth+'px')
+                      .css('background-position-y',-changeInHeight+'px')
+                      .css('height',heightOfOnePiece+'px')
+                      .css('width',widthOfOnePiece+'px').appendTo($container);
       };
+    }
 
-    };
 
-}(H5P.ImageGrid, H5P.EventDispatcher, H5P.jQuery);
+
+
+    // ImageGrid.fragments.prototype = Object.create(EventDispatcher.prototype);
+    ImageGrid.Fragments.prototype.constructor = ImageGrid.Fragments;
+
+    // ImageGrid.fragments.isValid = function(params) {
+    //     return (params !== undefined && params.image !== undefined && params.image.path !== undefined);
+    // };
+
+    return ImageGrid.Fragments;
+})(H5P.ImageGrid,H5P.jQuery);

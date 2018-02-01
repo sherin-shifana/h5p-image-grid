@@ -17,13 +17,25 @@
         "preloadedJs": [
                 {
                         "path": "js/h5p-image-grid.js"
+                },
+                {
+                        "path": "js/h5p-image-grid-fragment.js"
                 }
         ],
-        "editorDependencies" : [
+        "preloadedDependencies": [
+          {
+
+                    "machineName":"H5P.JoubelUI",
+                      "majorVersion":1,
+                      "minorVersion":3
+
+          }
+        ],
+        "editorDependencies": [
                 {
-                        "machineName" : "H5PEditor.RadioGroup",
-                        "majorVersion" : "1",
-                        "minorVersion" : "1"
+                        "machineName": "H5PEditor.RadioGroup",
+                        "majorVersion": 1,
+                        "minorVersion": 1
                 }
         ],
         "preloadedDependencies" : [
