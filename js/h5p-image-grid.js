@@ -15,6 +15,7 @@ H5P.ImageGrid = (function($,EventDispatcher,UI){
 
         var getFragments = function() {
 
+
             var fragmentsToUse = [];
             for(var i=0;i<levelsNum; i++)
             {
@@ -25,11 +26,10 @@ H5P.ImageGrid = (function($,EventDispatcher,UI){
                       // var fragment = new ImageGrid.fragments(self.params.image,self.id,heightOfOnePiece,widthOfOnePiece,changeInHeight,changeInWidth);
                   }
             }
-            // fragmentsToUse.push(fragment);
-
 
         }
       }
+
 
         // var fragmentsToUse = getFragments();
 
