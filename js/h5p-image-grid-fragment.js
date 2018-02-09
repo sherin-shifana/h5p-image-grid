@@ -6,7 +6,7 @@
     var changeInWidth;
     var changeInHeight;
 
-    ImageGrid.Fragments = function(image,id,heightOfOnePiece,widthOfOnePiece,changeInHeight,changeInWidth){
+    ImageGrid.Fragments = function(image,id,heightOfOnePiece,widthOfOnePiece,changeInHeight,changeInWidth,fragmentId){
 
       var self = this;
       path = H5P.getPath(image.path, id);
@@ -14,10 +14,11 @@
       widthOfOnePiece = widthOfOnePiece;
       changeInWidth = changeInWidth;
       changeInHeight = changeInHeight;
+      fragmentId = fragmentId;
 
 
       self.appendTo = function($container){
-          $fragment = $('<li class="li-class"></li>')
+          $fragment = $('<li class="li-class" data-id = "'+ fragmentId +'"></li>')
                       .css('background-image','url(' + path + ')')
                       .css('background-position-x',-changeInWidth+'px')
                       .css('background-position-y',-changeInHeight+'px')

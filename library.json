@@ -2,7 +2,7 @@
         "title": "Image Grid",
         "description": "Place the image fragments in proper position to reconstruct the image",
         "majorVersion": 1,
-        "minorVersion": 1,
+        "minorVersion": 2,
         "patchVersion": 2,
         "runnable": 1,
         "machineName": "H5P.ImageGrid",
@@ -25,10 +25,16 @@
         "preloadedDependencies": [
           {
 
-                    "machineName":"H5P.JoubelUI",
+                      "machineName":"H5P.JoubelUI",
                       "majorVersion":1,
                       "minorVersion":3
 
+          },
+          {
+                      "machineName":"jQuery.ui",
+                      "majorVersion":1,
+                      "minorVersion":10,
+                      "defaultStyles":true
           }
         ],
         "editorDependencies": [
@@ -37,14 +43,6 @@
                         "majorVersion": 1,
                         "minorVersion": 1
                 }
-        ],
-        "preloadedDependencies" : [
-            {
-              "machineName" : "H5P.JoubelUI",
-            "majorVersion" : "1",
-            "minorVersion" : "3"
-          }
-
         ]
 
 }

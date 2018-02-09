@@ -2,16 +2,55 @@
 .ul-class{
   list-style-type : none;
 }
+
 .li-class{
 
   margin-right: 6px;
   display : inline-block;
+
 }
+
+.new-list{
+  display : inline-block;
+  vertical-align: bottom;
+
+  /*margin-right: 6px;*/
+}
+.new-ul{
+  list-style-type: none;
+}
+
 .grid-image-div{
 
 
 }
+
+.left-div{
+  height : auto;
+
+  display: inline-block;
+}
+
+.right-div{
+  height : auto;
+  display: inline-block;
+}
+
+.center-div{
+  display : inline-block;
+
+
+}
+
 .game-start-button{
-    
+
     margin-left: 45px;
+}
+
+.scale-grid-small{
+    transform: scale(.9);
+
+}
+.scale-elements-small{
+  transform: scale(.9);
 }
