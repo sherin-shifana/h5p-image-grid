@@ -1,41 +1,48 @@
-(function(ImageGrid,$){
+(function(ImageGrid,$,EventDispatcher){
 
-    var path;
-    var heightOfOnePiece;
-    var widthOfOnePiece;
-    var changeInWidth;
-    var changeInHeight;
 
-    ImageGrid.Fragments = function(image,id,heightOfOnePiece,widthOfOnePiece,changeInHeight,changeInWidth,fragmentId){
+
+    ImageGrid.Fragment = function(image,id,row,col,level,fWidth,fHeight){
 
       var self = this;
-      path = H5P.getPath(image.path, id);
-      heightOfOnePiece = heightOfOnePiece;
-      widthOfOnePiece = widthOfOnePiece;
-      changeInWidth = changeInWidth;
-      changeInHeight = changeInHeight;
-      fragmentId = fragmentId;
+      EventDispatcher.call(self);
+      var imagePath = H5P.getPath(image.path,id);
+      self.fragmentId = row*level+col;
+      var bWidth = Math.floor(image.width/level);
+      var bHeight = Math.floor(image.height/level);
+      var backgroundXPosition=col*bWidth;
+      var backgroundYPosition=row*bHeight;
+
+      console.log(backgroundXPosition);
+      console.log(backgroundYPosition);
 
 
       self.appendTo = function($container){
-          $fragment = $('<li class="li-class" data-id = "'+ fragmentId +'"></li>')
-                      .css('background-image','url(' + path + ')')
-                      .css('background-position-x',-changeInWidth+'px')
-                      .css('background-position-y',-changeInHeight+'px')
-                      .css('height',heightOfOnePiece+'px')
-                      .css('width',widthOfOnePiece+'px').appendTo($container);
+          self.$fragment = $('<div class="li-class" data-id = "'+ self.fragmentId +'"></div>')
+                      .css('background-image','url(' + imagePath + ')')
+                      .css('background-position',(-backgroundXPosition)+'px '+ (-backgroundYPosition)+'px ')
+                      .css('height',bHeight+'px')
+                      .css('width',bWidth+'px');
+            self.$fragment.css('transform','scale('+fWidth/bWidth+','+fHeight/bHeight+')');
+            self.$fragment.css('transform-origin','0px 0px');
+
+
+
+
+
+          self.$fragment.appendTo($container);
       };
     }
 
 
 
 
-    // ImageGrid.fragments.prototype = Object.create(EventDispatcher.prototype);
-    ImageGrid.Fragments.prototype.constructor = ImageGrid.Fragments;
+    ImageGrid.Fragment.prototype = Object.create(EventDispatcher.prototype);
+    ImageGrid.Fragment.prototype.constructor = ImageGrid.Fragment;
 
-    // ImageGrid.fragments.isValid = function(params) {
+    // ImageGrid.Fragment.isValid = function(params) {
     //     return (params !== undefined && params.image !== undefined && params.image.path !== undefined);
     // };
 
-    return ImageGrid.Fragments;
-})(H5P.ImageGrid,H5P.jQuery);
+    return ImageGrid.Fragment;
+})(H5P.ImageGrid,H5P.jQuery,H5P.EventDispatcher);

@@ -1,56 +1,278 @@
-
-.ul-class{
-  list-style-type : none;
+.h5p-image-grid{
+  margin: 0 auto;
 }
 
+.h5p-image-grid .container-landscape{
+  max-width: 100%;
+  text-align: center;
+}
+.h5p-image-grid .container-landscape img{
+  max-width: 50%;
+  height:auto;
+}
+
+
+.h5p-image-grid .container-portrait{
+  max-height: 100%;
+  text-align:center;
+
+}
+
+
+.h5p-image-grid .grid-canvas{
+  background-size:cover;
+}
+
+.h5p-image-grid .difficulty-container{
+  display: block;
+  text-align: center;
+}
+
+.h5p-image-grid .difficulty-label{
+  display:inline-block;
+  height:2em;
+  margin-top:0.5em;
+}
+
+.h5p-image-grid .difficulty-selector{
+  text-align:center;
+  position: relative;
+  margin: 0 auto;
+  border: 2px solid black;
+
+ display: inline-block;
+ width: 15em;
+ height: 2em;
+ border-radius: .25em;
+
+}
+
+.h5p-image-grid .difficulty-selector:before {
+    content: "\f078";
+    font-family: H5PFontAwesome4;
+    left:90%;
+    position:absolute;
+    top:0;
+    font-size: 1em;
+
+ }
+
+
+
+.h5p-image-grid .difficulty-selector select{
+  background: transparent;
+  appearance:none;
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+
+}
+
+.h5p-image-grid .start-puzzle-button-container{
+  text-align:center;
+  padding:1em;
+}
+
+.h5p-image-grid .start-puzzle-button-container .h5p-joubelui-button{
+
+  width: 15em;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.h5p-image-grid .screen-toggler-container{
+  text-align:center;
+  padding: 1em 0 0 0;
+}
+
+.h5p-image-grid .game-container{
+  position:relative;
+
+}
+.play-area-container{
+  position: relative;
+}
 .li-class{
-
-  margin-right: 6px;
-  display : inline-block;
-
+  display:inline-block;
 }
-
-.new-list{
-  display : inline-block;
-  vertical-align: bottom;
-
-  /*margin-right: 6px;*/
+.holder-container{
+  position: absolute;
 }
-.new-ul{
-  list-style-type: none;
+.secondary-holder-container{
+  position: absolute;
+  border:2px solid black;
+  z-index:4;
 }
+.droppable-container{
+  position: absolute;
 
-.grid-image-div{
-
-
+  z-index:4;
 }
+/*===========slider================*/
 
-.left-div{
-  height : auto;
-
+.switch {
+  position: relative;
   display: inline-block;
+  width: 40px;
+  height: 13px;
+  margin-left:3em;
 }
 
-.right-div{
-  height : auto;
-  display: inline-block;
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-.center-div{
-  display : inline-block;
-
-
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  top: -0.4em;
+  left:0%;
+  background-color: grey;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-.game-start-button{
-
-    margin-left: 45px;
+input:checked + .slider {
+  background-color: #2196F3;
 }
 
-.scale-grid-small{
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 25px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.scale-fragments{
+
     transform: scale(.9);
+    /*position: center;*/
 
 }
-.scale-elements-small{
+.scale-grid{
+  border:1px solid black;
   transform: scale(.9);
+}
+
+.timer-div{
+  display: inline;
+  /*float: right;*/
+  margin-left: 7em;
+
+}
+.preview-image{
+
+  display:inline-block;
+  /*font-size:13px;*/
+  position:center;
+  cursor:context-menu;
+  border: .5px solid grey;
+  -webkit-appearance:button;
+  border-radius: 3px;
+    /*padding:3px 8px 3px 8px;*/
+  background-color: floralwhite;
+
+  /*width :20em;*/
+  text-align:center;
+
+
+}
+.timer{
+
+
+  border: .5px solid grey;
+  border-radius: 3px;
+  background-color: floralwhite;
+  /*width :15em;*/
+  display:inline-block;
+  -webkit-appearance:button;
+  /*padding:3px 8px 3px 8px;*/
+  /*font-size:13px;*/
+  position:relative;
+  text-align:center;
+
+
+}
+.shuffle-remaining{
+  display:inline-block;
+  /*font-size:13px;*/
+  position:center;
+  cursor:context-menu;
+  border: .5px solid grey;
+  -webkit-appearance:button;
+  border-radius: 3px;
+    /*padding:3px 8px 3px 8px;*/
+  background-color: floralwhite;
+
+  /*width :20em;*/
+  text-align:center;
+}
+
+.h5p-image-grid .retry-puzzle-button-container{
+  text-align:center;
+  padding:1em;
+}
+
+.h5p-image-grid .retry-puzzle-button-container .h5p-joubelui-button{
+
+  /*width: 10em;*/
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.result-page-msg{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.result-page-time-spent{
+  font-size: 1em;
+  text-align: center;
+}
+.preview-solution{
+  opacity:.2;
+}
+.hide-image{
+  display:inline-block;
+  /*font-size:13px;*/
+  position:center;
+  cursor:context-menu;
+  border: .5px solid grey;
+  -webkit-appearance:button;
+  border-radius: 3px;
+    /*padding:3px 8px 3px 8px;*/
+  background-color: floralwhite;
+
+  /*width :20em;*/
+  text-align:center;
 }
